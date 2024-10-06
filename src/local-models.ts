@@ -10,7 +10,7 @@ import { homedir } from "os";
 import { join } from "path";
 import { ChatWrapper, Llama3_1ChatWrapper } from "node-llama-cpp";
 
-const MODEL_DIRECTORY = join(homedir(), ".humanifyjs", "models");
+const MODEL_DIRECTORY = join(process.cwd(), "models");
 
 type ModelDefinition = { url: URL; wrapper?: ChatWrapper };
 
