@@ -22,7 +22,7 @@ export async function unminifyVariableName(
   const result = await prompt(
     `You are a Code Assistant.`,
     `What would be a good name for the following function or a variable in Typescript? Don't mind the minified variable names.\n${description}`,
-    gbnf`A good name would be '${/[a-zA-Z] [a-zA-Z0-9]{2,12}/}'`
+    gbnf`A good name would be '${/[a-zA-Z] [a-zA-Z0-9]{2,32}/}'`
   );
 
   verbose.log("Renaming to:", result);

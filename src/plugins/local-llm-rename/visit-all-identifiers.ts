@@ -47,6 +47,14 @@ export async function visitAllIdentifiers(
     }
     renames.add(safeRenamed);
 
+    // 加入重命名注释，格式为 `// cc: <old_name> -> <new_name>`
+    smallestScopeNode.leadingComments = [
+      {
+        type: "CommentBlock",
+        value: ` cc: ${smallestScopeNode.name} -> ${safeRenamed} `
+      }
+    ];
+
     smallestScope.scope.rename(smallestScopeNode.name, safeRenamed);
     markVisited(smallestScope, smallestScopeNode.name, visited);
 
