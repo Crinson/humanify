@@ -21,6 +21,10 @@ export const MODELS: { [modelName: string]: ModelDefinition } = {
   "8b": {
     url: url`https://huggingface.co/lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF/resolve/main/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf?download=true`,
     wrapper: new Llama3_1ChatWrapper()
+  },
+  "qwen-coder": {
+    url: url`https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct-GGUF/tree/main/qwen2.5-coder-7b-instruct-q5_k_m.gguf?download=true`,
+    wrapper: new Llama3_1ChatWrapper()
   }
 };
 

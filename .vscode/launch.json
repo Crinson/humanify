@@ -16,7 +16,7 @@
       {
         "type": "node",
         "request": "launch",
-        "name": "调试运行",
+        "name": "【llama】调试运行",
         "runtimeExecutable": "node",
         "runtimeArgs": ["--import", "tsx"],
         "program": "${workspaceFolder}/src/index.ts",
@@ -28,7 +28,7 @@
       {
         "type": "node",
         "request": "launch",
-        "name": "反编译async.js",
+        "name": "【llama】反编译async.js",
         "runtimeExecutable": "node",
         "runtimeArgs": ["--import", "tsx"],
         "program": "${workspaceFolder}/src/index.ts",
@@ -36,6 +36,30 @@
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "args": ["local", "-m", "8b", "./fixtures/async.min.js"]
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "【千问】调试运行",
+        "runtimeExecutable": "node",
+        "runtimeArgs": ["--import", "tsx"],
+        "program": "${workspaceFolder}/src/index.ts",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "args": ["local", "-m", "qwen-coder", "./fixtures/example.min.js"]
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "【千问】反编译async.js",
+        "runtimeExecutable": "node",
+        "runtimeArgs": ["--import", "tsx"],
+        "program": "${workspaceFolder}/src/index.ts",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "args": ["local", "-m", "qwen-coder", "./fixtures/async.min.js"]
       }
     ]
   }

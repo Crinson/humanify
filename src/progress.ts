@@ -22,14 +22,14 @@ function formatBytes(numBytes: number) {
   return `${numBytes.toFixed(2)} ${units[unitIndex]}`;
 }
 
-export function showPercentage(percentage: number) {
+export function showPercentage(percentage: number, now: number, total: number) {
   const percentageStr = Math.round(percentage * 100);
   if (!verbose.enabled) {
     process.stdout.clearLine?.(0);
     process.stdout.cursorTo(0);
-    process.stdout.write(`Processing: ${percentageStr}%`);
+    process.stdout.write(`Processing: ${percentageStr}% (${now}/${total})`);
   } else {
-    verbose.log(`Processing: ${percentageStr}%`);
+    verbose.log(`Processing: ${percentageStr}% (${now}/${total})`);
   }
   if (percentage === 1) {
     process.stdout.write("\n");

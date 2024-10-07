@@ -15,7 +15,7 @@ type Visitor = (name: string, scope: string) => Promise<string>;
 export async function visitAllIdentifiers(
   code: string,
   visitor: Visitor,
-  onProgress?: (percentageDone: number) => void
+  onProgress?: (percentageDone: number, now: number, total: number) => void
 ) {
   const ast = await parseAsync(code);
   const visited = new Set<string>();
@@ -58,9 +58,9 @@ export async function visitAllIdentifiers(
     smallestScope.scope.rename(smallestScopeNode.name, safeRenamed);
     markVisited(smallestScope, smallestScopeNode.name, visited);
 
-    onProgress?.(visited.size / numRenamesExpected);
+    onProgress?.(visited.size / numRenamesExpected, visited.size, numRenamesExpected);
   }
-  onProgress?.(1);
+  onProgress?.(1, visited.size, numRenamesExpected);
 
   const stringified = await transformFromAstAsync(ast);
   if (!stringified?.code) {
